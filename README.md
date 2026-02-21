@@ -171,6 +171,12 @@ Generator Guarantees:
 - Remaining characters are randomly selected
 - Cryptographically secure shuffle of the final password
 
+**Possible Errors**:
+
+```go
+ErrLengthExceeded
+```
+
 ## Random Sources
 
 ### Default RNG (crypto/rand)
