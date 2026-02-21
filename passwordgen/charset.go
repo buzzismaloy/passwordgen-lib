@@ -5,7 +5,6 @@ const (
 	Lowercase = "abcdefghijklmnopqrstuvwxyz"
 	Uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 	Symbols   = "@#&-_+!$%^*()[]{}"
-	Ambiguous = "lI|"
 )
 
 func BuildCharSet(cfg Config) string {

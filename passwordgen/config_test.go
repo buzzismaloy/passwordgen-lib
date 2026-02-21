@@ -1,6 +1,9 @@
 package passwordgen
 
-import "testing"
+import (
+	"errors"
+	"testing"
+)
 
 func TestDefaultConfig(t *testing.T) {
 	cfg := DefaultConfig()
@@ -23,7 +26,7 @@ func TestValidateConfigInvalidLength(t *testing.T) {
 	if err == nil {
 		t.Fatal("expected ErrInvalidLength")
 	}
-	if err != ErrInvalidLength {
+	if !errors.Is(err, ErrInvalidLength) {
 		t.Fatalf("expected ErrInvalidLength, got %v", err)
 	}
 }
@@ -32,7 +35,7 @@ func TestValidateConfigNoCharset(t *testing.T) {
 	cfg := Config{Length: 8}
 	err := ValidateConfig(cfg)
 
-	if err != ErrNoCharacterSet {
+	if !errors.Is(err, ErrNoCharacterSet) {
 		t.Fatalf("expected ErrNoCharacterSet, got %v", err)
 	}
 }
