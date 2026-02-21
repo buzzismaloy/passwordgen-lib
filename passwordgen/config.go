@@ -89,7 +89,6 @@ func NewConfig(opts ...Option) *Config {
 }
 
 // ValidateConfig - function that validates the length of password and if any set of characters is used
-// if length doesn't fit in the borders - the default length(which equals to 8) is set
 func ValidateConfig(cfg Config) error {
 	if cfg.Length < MinPassLength || cfg.Length > MaxPassLength {
 		return fmt.Errorf("Validation failed: %w", ErrInvalidLength)
