@@ -37,7 +37,7 @@ go mod edit -require=github.com/buzzismaloy/passwordgen-lib@latest
 go mod tidy
 ```
 
-### ethod 3: Manually editing `go.mod`
+### Method 3: Manually editing `go.mod`
 
 Add this line to your `go.mod` file:
 
@@ -86,6 +86,14 @@ func main() {
 
 	fmt.Println(pass)
 }
+```
+
+---
+
+## Example Output
+
+```
+gA9@f3Q!2xP7b$
 ```
 
 ---
