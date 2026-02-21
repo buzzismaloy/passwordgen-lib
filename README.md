@@ -247,3 +247,14 @@ passwordgen-lib/
  ├─ go.mod
  └─ README.md
 ```
+
+## License
+
+[![License](https://img.shields.io/github/license/buzzismaloy/passwordgen-lib)](https://github.com/buzzismaloy/passwordgen-lib/blob/main/LICENSE)
+
+## About repo
+![Go](https://img.shields.io/badge/Go-1.25-blue)
+![Repo Size](https://img.shields.io/github/repo-size/buzzismaloy/passwordgen-lib)
+
+## Author
+[![GitHub](https://img.shields.io/badge/GitHub-buzzismaloy-black?logo=github)](https://github.com/buzzismaloy)
