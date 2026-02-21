@@ -168,9 +168,7 @@ password, err := gen.Generate()
 Generator Guarantees:
 
 - At least one character from each enabled class
-
 - Remaining characters are randomly selected
-
 - Cryptographically secure shuffle of the final password
 
 ## Random Sources
@@ -224,15 +222,10 @@ go test ./...
 **Covered Components**:
 
 - Config defaults and validation
-
 - Charset builder
-
 - Password generator logic
-
 - Crypto RNG
-
 - Mock RNG
-
 - Error propagation
 
 ---
