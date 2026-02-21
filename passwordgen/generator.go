@@ -1,8 +1,13 @@
 package passwordgen
 
 import (
+	"errors"
+	"fmt"
+
 	"github.com/buzzismaloy/passwordgen-lib/internal/rand"
 )
+
+var ErrLengthExceeded = errors.New("[ERROR]: password length is too small for current config")
 
 type Generator struct {
 	cfg     Config
@@ -39,7 +44,26 @@ func randomChar(charset string, rng rand.RandomSource) (byte, error) {
 }
 
 func (g *Generator) Generate() (string, error) {
+	classes := 0
+	if g.cfg.UseDigits {
+		classes++
+	}
+	if g.cfg.UseLowercase {
+		classes++
+	}
+	if g.cfg.UseUppercase {
+		classes++
+	}
+	if g.cfg.UseSymbols {
+		classes++
+	}
+
+	if g.cfg.Length < classes {
+		return "", fmt.Errorf("Failure: %w; password length %d is too small for selected character classes %d", ErrLengthExceeded, g.cfg.Length, classes)
+	}
+
 	var password []byte
+	password = make([]byte, 0, g.cfg.Length)
 
 	if g.cfg.UseDigits {
 		c, err := randomChar(Digits, g.rng)
