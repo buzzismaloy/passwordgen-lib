@@ -3,6 +3,7 @@ package rand
 import (
 	"crypto/rand"
 	"errors"
+	"fmt"
 	"math/big"
 )
 
@@ -16,7 +17,7 @@ type CryptoSource struct{}
 
 func (CryptoSource) Intn(n int) (int, error) {
 	if n <= 0 {
-		return 0, ErrCryptoInvalidBound
+		return 0, fmt.Errorf("Crypto failure: %w", ErrCryptoInvalidBound)
 	}
 	max := big.NewInt(int64(n))
 

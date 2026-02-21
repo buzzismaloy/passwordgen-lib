@@ -1,6 +1,9 @@
 package passwordgen
 
-import "errors"
+import (
+	"errors"
+	"fmt"
+)
 
 var ErrInvalidLength = errors.New("[ERROR]: Invalid length of password.")
 var ErrNoCharacterSet = errors.New("[ERROR]: no characters sets are used to generate password.")
@@ -89,11 +92,11 @@ func NewConfig(opts ...Option) *Config {
 // if length doesn't fit in the borders - the default length(which equals to 8) is set
 func ValidateConfig(cfg Config) error {
 	if cfg.Length < MinPassLength || cfg.Length > MaxPassLength {
-		return ErrInvalidLength
+		return fmt.Errorf("Validation failed: %w", ErrInvalidLength)
 	}
 
 	if !cfg.UseDigits && !cfg.UseLowercase && !cfg.UseUppercase && !cfg.UseSymbols {
-		return ErrNoCharacterSet
+		return fmt.Errorf("Validation failed: %w", ErrNoCharacterSet)
 	}
 
 	return nil
